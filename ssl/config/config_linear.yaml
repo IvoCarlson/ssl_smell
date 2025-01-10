@@ -1,0 +1,65 @@
+# Dataset Parameters
+num_classes: 26
+# define lebels to class dictionary
+labels_to_class:
+  0: 'Vilsel'
+  1: 'Androm'
+  2: 'Snarasite'
+  3: 'MultiPlug'
+  4: 'Hlux'
+  5: 'VBA'
+  6: 'Regrun'
+  7: 'Injector'
+  8: 'BrowseFox'
+  9: 'Fasong'
+  10: 'Allaple'
+  11: 'Agent'
+  12: 'Amonetize'
+  13: 'Other'
+  14: 'VBKrypt'
+  15: 'HackKMS'
+  16: 'Dinwod'
+  17: 'Adposhel'
+  18: 'Neshta'
+  19: 'Autorun'
+  20: 'InstallCore'
+  21: 'Sality'
+  22: 'Neoreklami'
+  23: 'Stantinko'
+  24: 'Elex'
+  25: 'Expiro'
+
+normalize: True
+
+#paths
+root_path: '/home/ivo/data/SSL/ImpRotNet_09/ssl_pytorch'
+data_path: 'dataset'
+exp_type: 'self-supervised' # 'supervised' or 'self-supervised'
+save_dir: 'lin_exp_PCA_rotation_03'
+imgs_dir: 'malevis'
+labels_dir: 'annotations'
+log: 'train.log'
+feat_extract_exp_dir: 'ssl_exp_01/rotation' #'ssl_rotnet'
+features: 'features_rotation_3'
+
+#pca
+pca_dim: 300 #False
+
+#model parameters
+network: 'log_reg'
+lr: 1e-3
+momentum: 9e-1
+scheduler: False
+opt: 'sgd'#'sgd','adam'
+
+# Training Parameters
+num_epochs: 100
+batch_size: 16
+mean_norm: False
+img_sz: 120
+val_split: 0.15
+cuda_num: 2
+use_cuda: False
+
+#saving parameters
+save_intermediate_weights: 2 # After how many epoch to save the weights

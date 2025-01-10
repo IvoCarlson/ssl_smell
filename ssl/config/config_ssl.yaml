@@ -1,0 +1,72 @@
+# Dataset Parameters
+num_classes: 26
+# define lebels to class dictionary
+labels_to_class:
+  0: 'Vilsel'
+  1: 'Androm'
+  2: 'Snarasite'
+  3: 'MultiPlug'
+  4: 'Hlux'
+  5: 'VBA'
+  6: 'Regrun'
+  7: 'Injector'
+  8: 'BrowseFox'
+  9: 'Fasong'
+  10: 'Allaple'
+  11: 'Agent'
+  12: 'Amonetize'
+  13: 'Other'
+  14: 'VBKrypt'
+  15: 'HackKMS'
+  16: 'Dinwod'
+  17: 'Adposhel'
+  18: 'Neshta'
+  19: 'Autorun'
+  20: 'InstallCore'
+  21: 'Sality'
+  22: 'Neoreklami'
+  23: 'Stantinko'
+  24: 'Elex'
+  25: 'Expiro'
+
+mean_val: [0.29189525 0.292658   0.28829961]#[0.34667718 0.34717475 0.34464298]
+std_val: [0.29189525 0.292658   0.28829961]#[0.34667718 0.34717475 0.34464298]
+
+#paths
+root_path: '/home/ivo/data/SSL/ImpRotNet_09/ssl_pytorch'
+data_path: 'dataset'
+exp_type: 'self-supervised' # 'supervised' or 'self-supervised'
+save_dir: 'ssl_exp_01'
+imgs_dir: 'malevis'
+labels_dir: 'annotations'
+log: 'train.log'
+
+# Self Supervised Params
+pretext: 'rotation'
+num_rot: 4
+
+
+#model parameters
+network: 'resnet18'
+lr: 1e-3
+momentum: 9e-1
+scheduler: False
+opt: 'sgd'
+val_split: 0.18
+
+# Training Parameters
+num_epochs: 200
+batch_size: 8
+mean_norm: False
+img_sz: 128
+cuda_num: 0
+use_cuda: True
+data_aug: False #['randomhorizontalflip','randomcrop']# None
+
+#saving parameters
+save_intermediate_weights: 1 # After how many epoch to save the weights
+
+# linear_eval
+model: 'logistic_reg'
+logistic_batch_size: 256
+logistic_epochs: 100
