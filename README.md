@@ -18,9 +18,17 @@ Execute os módulos do notebook 'EDA_MaleVis.ipynb' caso deseje uma visualizaç�
 
 Treinamento do modelo supervisionado
 
-Treinamento do modelo auto-supervisionado
+```bash
+python3 train_sl.py
+```
+
+Pode ser necessário realizar alterações no arquivo de configuração do treinamento 'config_sl.yaml'
+
+Treinamento do modelo auto-supervisionado pode ser feito de maneira similar. É importante notar que existem diferentes arquivos para execução a depender da Proxy Task desejada. Cada um dos scripts possui o seu próprio arquivo de configuração .yaml.
 
 Treinamento do modelo supervisionado com as representações obtidas pelo modelo auto-supervisionado
+
+Uma vez feito o treinamento das Proxy Tasks, os checkpoints salvos podem ser carregados para realizar um novo treinamento supervisionado.
 
 ## Teinamento final
 
