@@ -50,17 +50,23 @@ python3 train_sl_proxy.py
 ```
 
 ### Resultados obtidos com cada Proxy Task
+
+#### Rotação
 ![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SSL/RotationProxy.png)
+#### Posição Relativa
 ![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SSL/RelPosProxy.png)
+#### Ruído
 ![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SSL/NoiseProxy.png)
+#### Ofuscamento
 ![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SSL/BlurProxy.png)
 
 ## Teinamento final
 
 Execução do modelo SMELL
 
-https://github.com/IvoCarlson/ssl_smell/blob/main/images/SMELL/Fig01.png
-https://github.com/IvoCarlson/ssl_smell/blob/main/images/SMELL/Fig02.png
+![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SMELL/Fig01.png)
+
+![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SMELL/Fig02.png)
 
 Execução do modelo SMELL com as representações obtidas pelo modelo auto-supervisionado
 
