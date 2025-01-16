@@ -16,23 +16,51 @@ Execute os módulos do notebook 'EDA_MaleVis.ipynb' caso deseje uma visualizaç�
 
 ## Treinamento dos modelos SSL
 
-Treinamento do modelo supervisionado
+Aqui são detalhados os treinamentos do modelo SSL puro. Inicialmente é realizado um treinamento supervisionado simples. Em seguida, são treinadas as Proxy Tasks. Uma vez que elas foram treinadas, é realizada a transferência de conhecimento para um modelo supervisionado.
+
+### Treinamento do modelo supervisionado
+
+O treinamento do modelo supervisionado pode ser realizado com:
 
 ```bash
 python3 train_sl.py
 ```
 
-Pode ser necessário realizar alterações no arquivo de configuração do treinamento 'config_sl.yaml'
+Pode ser necessário realizar alterações no arquivo de configuração do treinamento 'config_sl.yaml' disponível no subdiretório ssl/config.
 
-Treinamento do modelo auto-supervisionado pode ser feito de maneira similar. É importante notar que existem diferentes arquivos para execução a depender da Proxy Task desejada. Cada um dos scripts possui o seu próprio arquivo de configuração .yaml.
+### Treinamento das Proxy Tasks
 
-Treinamento do modelo supervisionado com as representações obtidas pelo modelo auto-supervisionado
+Para o treinamento das Proxy Tasks foram gerados 3 arquivos. Um para a Proxy Task de Rotação, um para a Proxy Task de Posição Relativa e um para a Proxy Task de Ruído e Ofuscamento. Cada um desses tem seu próprio arquivo de configuração. A execução deles pode ser feita de forma similar ao treinamento do modelo supervisionado.
 
-Uma vez feito o treinamento das Proxy Tasks, os checkpoints salvos podem ser carregados para realizar um novo treinamento supervisionado.
+```bash
+python3 train_ssl_rotation.py
+
+python3 train_ssl_relpos.py
+
+python3 train_ssl_noise.py
+
+```
+
+### Treinamento do modelo SL com pesos
+
+Uma vez feito o treinamento das Proxy Tasks, os checkpoints salvos podem ser carregados para realizar um novo treinamento supervisionado. Também foi gerado um executável para essa tarefa para automatizar o processo de carregamento dos pesos.
+
+```bash
+python3 train_sl_proxy.py
+```
+
+### Resultados obtidos com cada Proxy Task
+![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SSL/RotationProxy.png)
+![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SSL/RelPosProxy.png)
+![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SSL/NoiseProxy.png)
+![alt text](https://github.com/IvoCarlson/ssl_smell/blob/main/images/SSL/BlurProxy.png)
 
 ## Teinamento final
 
 Execução do modelo SMELL
+
+https://github.com/IvoCarlson/ssl_smell/blob/main/images/SMELL/Fig01.png
+https://github.com/IvoCarlson/ssl_smell/blob/main/images/SMELL/Fig02.png
 
 Execução do modelo SMELL com as representações obtidas pelo modelo auto-supervisionado
 
